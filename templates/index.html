@@ -1,0 +1,21 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central5</title>
+</head>
+<body>
+    {% if current_user %}
+        <p>
+            <img src="{{current_user.avatar_url}}" alt="avatar"><br>
+            Добро пожаловать, {{current_user.username}}<br>
+            Вот чисто к слову твой ID это <b>{{current_user.id}}</b>, он нужен для всяких штук (если попросят скажите).
+        </p>
+
+        <a href="/logout"><button>Выйти из аккаунта</button></a>
+    {% else %}
+        <a href="{{redirect_uri}}"><button>Войти с помощью Discord</button></a><br>
+        (у тебя выбора нету)
+    {% endif %}
+</body>
+</html>
